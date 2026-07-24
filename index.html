@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;"
+    />
+    <title>布偶猫桌宠</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="stage">
+      <div id="bubble-slot" aria-hidden="true">
+        <div id="bubble" class="hidden">
+          <span id="bubble-text"></span>
+        </div>
+      </div>
+      <div id="pet-wrap">
+        <div id="pet-sprite">
+          <img id="pet" src="assets/cat.png" alt="桌宠" draggable="false" />
+          <div id="paw-dust" aria-hidden="true">
+            <i></i><i></i><i></i>
+          </div>
+        </div>
+        <div id="fx" aria-hidden="true"></div>
+      </div>
+    </div>
+    <script src="renderer.js"></script>
+  </body>
+</html>

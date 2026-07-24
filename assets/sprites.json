@@ -1,0 +1,63 @@
+{
+  "idle": "cat.png",
+  "blink": "cat-blink.png",
+  "idleSize": {
+    "width": 902,
+    "height": 1325
+  },
+  "run": [
+    "run/run_1.png",
+    "run/run_2.png",
+    "run/run_3.png",
+    "run/run_4.png",
+    "run/run_5.png",
+    "run/run_6.png"
+  ],
+  "runSize": {
+    "width": 1517,
+    "height": 801
+  },
+  "butterfly": [
+    "butterfly/bf_1.png",
+    "butterfly/bf_2.png",
+    "butterfly/bf_3.png",
+    "butterfly/bf_4.png"
+  ],
+  "butterflySize": {
+    "width": 346,
+    "height": 591
+  },
+  "blinkSeq": [
+    "blink/bk_1.png",
+    "blink/bk_2.png",
+    "blink/bk_3.png"
+  ],
+  "blinkSeqSize": {
+    "width": 499,
+    "height": 772
+  },
+  "boy": {
+    "idle": "boy/idle.png",
+    "run": [
+      "boy/run_1.png",
+      "boy/run_2.png",
+      "boy/run_3.png",
+      "boy/run_4.png"
+    ],
+    "idleSize": {
+      "width": 642,
+      "height": 1219
+    },
+    "runSize": {
+      "width": 642,
+      "height": 1219
+    },
+    "acts": {
+      "stretch": "boy/act_stretch.png",
+      "yawn": "boy/act_yawn.png",
+      "laugh": "boy/act_laugh.png",
+      "pet": "boy/act_pet.png",
+      "offer": "boy/act_offer.png"
+    }
+  }
+}

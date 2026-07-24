@@ -1,0 +1,60 @@
+{
+  "name": "desktop-pet",
+  "version": "1.0.0",
+  "description": "布偶猫 Windows 桌面宠物",
+  "main": "main.js",
+  "author": "desktop-pet",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "remove-bg": "node scripts/remove-bg.mjs",
+    "build": "electron-builder --win portable",
+    "dist": "npm run remove-bg && electron-builder --win portable"
+  },
+  "build": {
+    "appId": "com.ocean.desktop-pet",
+    "productName": "布偶猫桌宠",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "renderer.js",
+      "styles.css",
+      "child.html",
+      "child-renderer.js",
+      "assets/cat.png",
+      "assets/cat-blink.png",
+      "assets/sprites.json",
+      "assets/icon.ico",
+      "assets/run/**/*",
+      "assets/butterfly/**/*",
+      "assets/blink/**/*",
+      "assets/boy/**/*"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "portable": {
+      "artifactName": "布偶猫桌宠.exe"
+    }
+  },
+  "devDependencies": {
+    "electron": "^36.4.0",
+    "electron-builder": "^26.0.12",
+    "onnxruntime-node": "^1.27.0",
+    "pngjs": "^7.0.0",
+    "sharp": "^0.34.2",
+    "to-ico": "^1.1.5"
+  }
+}
