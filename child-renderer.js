@@ -149,11 +149,11 @@
     wrap.classList.add('act-bob');
     if (src) boy.src = asset(src);
     else boy.src = asset(sprites.idle);
-    showBubble(line || pick(ACT_LINES[kind] || PLAY_LINES), Math.min(1800, holdMs + 200));
+    showBubble(line || pick(ACT_LINES[kind] || PLAY_LINES), Math.min(2200, holdMs + 300));
     actTimer = setTimeout(() => {
       actTimer = null;
       if (mode === 'act') showIdle();
-    }, holdMs);
+    }, Math.max(1800, holdMs));
   }
 
   function showPlay(kind = 'cheer', line) {

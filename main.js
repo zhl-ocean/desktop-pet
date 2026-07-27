@@ -310,7 +310,7 @@ function beginSettleThenAct() {
       return;
     }
     beginRandomIdleAction();
-  }, randBetween(700, 1400));
+  }, randBetween(1200, 2200));
 }
 
 function beginRandomIdleAction() {
@@ -341,7 +341,7 @@ function idleWait() {
   return randBetween(5000, 11000);
 }
 
-function sendBoyAct(act, say, holdMs = 1700) {
+function sendBoyAct(act, say, holdMs = 2200) {
   if (!companionEnabled) return;
   childState = 'act';
   syncChild('act');
@@ -408,7 +408,7 @@ function beginBuddyCatch() {
   sendChildState('act', {
     act: 'laugh',
     say: ['抓住你啦！', '嘿嘿追上了', '哈哈哈！'][Math.floor(Math.random() * 3)],
-    holdMs: 1800,
+    holdMs: 2400,
   });
   sendPetState('buddy');
   scheduleNextBehavior(idleWait());
@@ -425,7 +425,7 @@ function beginBuddyPet() {
   sendChildState('act', {
     act: 'pet',
     say: ['摸摸毛毛～', '软软的！', '乖猫猫'][Math.floor(Math.random() * 3)],
-    holdMs: 1900,
+    holdMs: 2400,
   });
   sendPetState('buddy-pet');
   scheduleNextBehavior(idleWait());
@@ -442,7 +442,7 @@ function beginBuddyOffer() {
   sendChildState('act', {
     act: 'offer',
     say: ['给你喝果汁？', '分你一口～', '甜甜的哦'][Math.floor(Math.random() * 3)],
-    holdMs: 2000,
+    holdMs: 2600,
   });
   sendPetState('buddy-pet');
   scheduleNextBehavior(idleWait());

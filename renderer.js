@@ -239,23 +239,26 @@
     if (dragging || autoState === 'walk' || animating) return;
     const seq = sprites.blinkSeq || [];
     if (seq.length >= 2) {
-      await playFrameSequence(seq, { hold: 70, pingPong: true });
+      await playFrameSequence(seq, { hold: 120, pingPong: true });
       if (autoState !== 'walk' && !dragging) pet.src = asset(sprites.idle);
       return;
     }
     // fallback 单帧闭眼
     pet.src = asset(sprites.blink || sprites.idle);
-    await new Promise((r) => setTimeout(r, 150));
+    await new Promise((r) => setTimeout(r, 280));
     if (autoState !== 'walk' && !dragging) pet.src = asset(sprites.idle);
   }
 
   async function playButterfly() {
     const frames = sprites.butterfly || [];
     if (!frames.length) return;
-    showBubble(pickLine(BUTTERFLY_LINES), 2200);
-    await playFrameSequence(frames, { hold: 160, pingPong: false });
-    // 收尾再眨眼一下更自然
+    showBubble(pickLine(BUTTERFLY_LINES), 3200);
+    // 先顿一下再开抓，结尾多停一帧，整体更慢更自然
+    await new Promise((r) => setTimeout(r, 280));
+    await playFrameSequence(frames, { hold: 320, pingPong: true });
+    await new Promise((r) => setTimeout(r, 360));
     await playBlinkDetailed();
+    await new Promise((r) => setTimeout(r, 200));
     if (!dragging && autoState !== 'walk') pet.src = asset(sprites.idle);
   }
 
@@ -348,7 +351,7 @@
         scheduleBlink();
         scheduleIdleAction();
       };
-      const fallback = setTimeout(onEnd, 850);
+      const fallback = setTimeout(onEnd, 1400);
       if (action.className) petWrap.addEventListener('animationend', onEnd);
       else onEnd();
     })();
@@ -408,7 +411,7 @@
           fx.textContent = '';
           showIdle();
         }
-      }, 900);
+      }, 1400);
       scheduleBlink();
       return;
     }
@@ -419,14 +422,14 @@
       showIdle();
       petWrap.classList.add('wiggle');
       fx.textContent = '✨';
-      showBubble(pickLine(BUDDY_PET_LINES), 2200);
+      showBubble(pickLine(BUDDY_PET_LINES), 2600);
       setTimeout(() => {
         if (autoState === 'buddy-pet') {
           clearMotionClasses();
           fx.textContent = '';
           showIdle();
         }
-      }, 850);
+      }, 1300);
       scheduleBlink();
       return;
     }
@@ -437,7 +440,7 @@
       petWrap.classList.add('sleepy', 'daydream');
       pet.src = asset(sprites.blink);
       fx.innerHTML = '<span class="dream-zzz">Zzz</span>';
-      showBubble(pickLine(['Zzz…五分钟就好。', '别吵，本喵在开会。', '困了，先眯一会儿。']), 2400);
+      showBubble(pickLine(['Zzz…五分钟就好。', '别吵，本喵在开会。', '困了，先眯一会儿。']), 2800);
       scheduleBlink();
       return;
     }
@@ -448,14 +451,14 @@
       showIdle();
       petWrap.classList.add('wiggle');
       fx.textContent = '✨';
-      showBubble(pickLine(['伸个懒腰～', '骨头咔咔响。', '活动一下爪爪。']), 2000);
+      showBubble(pickLine(['伸个懒腰～', '骨头咔咔响。', '活动一下爪爪。']), 2400);
       setTimeout(() => {
         if (autoState === 'stretch') {
           clearMotionClasses();
           fx.textContent = '';
           showIdle();
         }
-      }, 850);
+      }, 1300);
       scheduleBlink();
       scheduleIdleAction();
       return;
